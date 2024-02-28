@@ -234,6 +234,14 @@ class _MyAppState extends State<MyApp> {
     html.Url.revokeObjectUrl(url);
   }
 
+  void resetAllEntries() {
+    setState(() {
+      _begehungen = [Begehung()];
+    });
+    saveBegehungenToLocalStorage(
+        _begehungen);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -256,6 +264,8 @@ class _MyAppState extends State<MyApp> {
                     title: Text('Zeitpunkt der Begehung'),
                     trailing: IconButton(
                       icon: Icon(Icons.access_time),
+                      color: Colors.black,
+                      iconSize: 40.0,
                       onPressed: () => _captureCurrentTime(begehung),
                     ),
                     subtitle: begehung.inspectionTime != null
@@ -350,14 +360,35 @@ class _MyAppState extends State<MyApp> {
               ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            createPdfFromLocalStorage();
-          },
-          child: Icon(Icons.picture_as_pdf),
-          tooltip: 'PDF erstellen',
+        floatingActionButton: Stack(
+          fit: StackFit.expand,
+          children: [
+            Positioned(
+              bottom: 50,
+              right: 10,
+              child: FloatingActionButton(
+                onPressed: () {
+                  createPdfFromLocalStorage();
+                },
+                child: Icon(Icons.picture_as_pdf),
+                tooltip: 'PDF erstellen',
+              ),
+            ),
+            Positioned(
+              bottom: 50,
+              left: 35,
+              child: FloatingActionButton(
+                onPressed: () {
+                  resetAllEntries();
+                },
+                child: Icon(Icons.delete_forever),
+                tooltip: 'Alles zurücksetzen',
+                backgroundColor:
+                    Colors.red,
+              ),
+            ),
+          ],
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
     );
   }
