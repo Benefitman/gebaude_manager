@@ -1,0 +1,9 @@
+{
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnSave": true,
+    "dart.lineLength": 80,
+    "editor.rulers": [
+        80
+    ],
+    "files.autoSave": "afterDelay",
+}

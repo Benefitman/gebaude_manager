@@ -1,0 +1,2 @@
+# Begehungs Dokumentation
+ Die Begehungs-Manager App ist eine mobile Anwendung, die für die effiziente Durchführung und Dokumentation von Begehungen, Inspektionen oder Audits entwickelt wurde. Mit dieser App können Benutzer während einer Begehung relevante Informationen erfassen, Fotos hinzufügen und detaillierte Notizen machen. Die gesammelten Daten werden automatisch in ein strukturiertes PDF-Dokument umgewandelt, das für die Aufbewahrung oder Weitergabe heruntergeladen werden kann.
