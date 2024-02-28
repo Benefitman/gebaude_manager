@@ -24,8 +24,7 @@ class Begehung {
     List<Uint8List>? bilder,
     this.inspectionTime,
     this.isChecked,
-  })  : bilder = bilder ??
-            [],
+  })  : bilder = bilder ?? [],
         titleController = TextEditingController(),
         detailsController = TextEditingController();
 
@@ -358,8 +357,7 @@ class _MyAppState extends State<MyApp> {
           child: Icon(Icons.picture_as_pdf),
           tooltip: 'PDF erstellen',
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation
-            .endFloat,
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
     );
   }
