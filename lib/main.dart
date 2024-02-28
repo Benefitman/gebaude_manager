@@ -238,8 +238,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _begehungen = [Begehung()];
     });
-    saveBegehungenToLocalStorage(
-        _begehungen);
+    saveBegehungenToLocalStorage(_begehungen);
   }
 
   @override
@@ -361,30 +360,42 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         floatingActionButton: Stack(
-          fit: StackFit.expand,
-          children: [
-            Positioned(
-              bottom: 50,
-              right: 10,
-              child: FloatingActionButton(
-                onPressed: () {
-                  createPdfFromLocalStorage();
-                },
-                child: Icon(Icons.picture_as_pdf),
-                tooltip: 'PDF erstellen',
+          children: <Widget>[
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 30, bottom: 4),
+                child: Container(
+                  height: 50.0,
+                  width: 50.0,
+                  child: FloatingActionButton(
+                    onPressed: resetAllEntries,
+                    child: Icon(Icons.delete_forever),
+                    tooltip: 'Alles zurücksetzen',
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    backgroundColor: Colors.red,
+                  ),
+                ),
               ),
             ),
-            Positioned(
-              bottom: 50,
-              left: 35,
-              child: FloatingActionButton(
-                onPressed: () {
-                  resetAllEntries();
-                },
-                child: Icon(Icons.delete_forever),
-                tooltip: 'Alles zurücksetzen',
-                backgroundColor:
-                    Colors.red,
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: EdgeInsets.only(right: 1, bottom: 4),
+                child: Container(
+                  height: 50.0,
+                  width: 50.0,
+                  child: FloatingActionButton(
+                    onPressed: createPdfFromLocalStorage,
+                    child: Icon(Icons.picture_as_pdf),
+                    tooltip: 'PDF erstellen',
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
